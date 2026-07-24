@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: LOGILESS Articles Outbound Deliveries API
+  version: v1
+  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.
+  contact:
+    name: LOGILESS Developers
+    url: https://app2.logiless.com/developer/
+  x-apievangelist-derived-from: https://app2.logiless.com/developer/documents/specifications
+servers:
+- url: https://app2.logiless.com/api/v1
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Outbound Deliveries
+  description: 出荷伝票 — shipment records
+paths:
+  /merchant/{merchant_id}/outbound_deliveries:
+    get:
+      tags:
+      - Outbound Deliveries
+      operationId: listOutboundDeliveries
+      summary: List outbound deliveries (出荷伝票の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of outbound deliveries
+components:
+  parameters:
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
+    merchantId:
+      name: merchant_id
+      in: path
+      required: true
+      description: Merchant identifier the token is scoped to
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+          tokenUrl: https://app2.logiless.com/oauth2/token
+          refreshUrl: https://app2.logiless.com/oauth2/token
+          scopes: {}

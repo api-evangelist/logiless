@@ -1,0 +1,436 @@
+openapi: 3.0.3
+info:
+  title: LOGILESS Articles Sales Orders API
+  version: v1
+  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.
+  contact:
+    name: LOGILESS Developers
+    url: https://app2.logiless.com/developer/
+  x-apievangelist-derived-from: https://app2.logiless.com/developer/documents/specifications
+servers:
+- url: https://app2.logiless.com/api/v1
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Sales Orders
+  description: 受注伝票 — order intake, editing, confirmation and reversal
+paths:
+  /merchant/{merchant_id}/sales_orders:
+    get:
+      tags:
+      - Sales Orders
+      operationId: listSalesOrders
+      summary: List sales orders (受注伝票の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/updatedAtFrom'
+      - $ref: '#/components/parameters/updatedAtTo'
+      responses:
+        '200':
+          description: A page of sales orders
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /merchant/{merchant_id}/sales_orders/search:
+    post:
+      tags:
+      - Sales Orders
+      operationId: searchSalesOrders
+      summary: Search sales orders by ids or codes
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: integer
+                codes:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Matching sales orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderList'
+  /merchant/{merchant_id}/sales_orders/new:
+    post:
+      tags:
+      - Sales Orders
+      operationId: createSalesOrder
+      summary: Create a sales order (受注伝票を登録)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrder'
+      responses:
+        '200':
+          description: Created sales order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrder'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /merchant/{merchant_id}/sales_orders/new/multiple:
+    post:
+      tags:
+      - Sales Orders
+      operationId: createSalesOrdersMultiple
+      summary: Create multiple sales orders in one request
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SalesOrder'
+      responses:
+        '200':
+          description: Created sales orders
+  /merchant/{merchant_id}/sales_orders/{id}:
+    put:
+      tags:
+      - Sales Orders
+      operationId: updateSalesOrder
+      summary: Update a sales order
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrder'
+      responses:
+        '200':
+          description: Updated sales order
+        '423':
+          $ref: '#/components/responses/Locked'
+  /merchant/{merchant_id}/sales_orders/{id}/reversal:
+    post:
+      tags:
+      - Sales Orders
+      operationId: reverseSalesOrder
+      summary: Reverse (cancel) a sales order
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reversed
+  /merchant/{merchant_id}/sales_orders/{id}/sales_order_lines/new:
+    post:
+      tags:
+      - Sales Orders
+      operationId: addSalesOrderLine
+      summary: Add a line to a sales order
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderLine'
+      responses:
+        '200':
+          description: Line added
+  /merchant/{merchant_id}/sales_orders/{sales_order_id}/sales_order_confirmations/new:
+    post:
+      tags:
+      - Sales Orders
+      operationId: createSalesOrderConfirmation
+      summary: Put a sales order into pending-confirmation state
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: sales_order_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Confirmation created
+  /merchant/{merchant_id}/sales_orders/{sales_order_id}/sales_order_confirmations/{sales_order_confirmation_id}/confirmation:
+    post:
+      tags:
+      - Sales Orders
+      operationId: confirmSalesOrder
+      summary: Confirm a pending sales order
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: sales_order_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: sales_order_confirmation_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Confirmed
+components:
+  headers:
+    X-RateLimit-Remaining:
+      description: Remaining requests before X-RateLimit-Reset
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: Unix timestamp when the request counter resets
+      schema:
+        type: integer
+    X-RateLimit-Limit:
+      description: Maximum number of requests accepted in the window
+      schema:
+        type: integer
+  schemas:
+    ValidationError:
+      type: object
+      description: 400 error envelope
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Validation Failed
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+    SalesOrder:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          description: Unique numeric identifier used for API access
+        object_code:
+          type: string
+          description: 受注管理番号
+        code:
+          type: string
+          description: 受注コード (required)
+        parent_code:
+          type: string
+        document_status:
+          type: string
+          readOnly: true
+          description: 伝票ステータス
+        allocation_status:
+          type: string
+          readOnly: true
+        delivery_status:
+          type: string
+          readOnly: true
+        incoming_payment_status:
+          type: string
+        authorization_status:
+          type: string
+        customer_code:
+          type: string
+        buyer_name1:
+          type: string
+          description: 購入者名(1) (required)
+        buyer_email:
+          type: string
+        recipient_name1:
+          type: string
+          description: お届け先名(1) (required)
+        recipient_post_code:
+          type: string
+        recipient_prefecture:
+          type: string
+        recipient_address1:
+          type: string
+          description: お届け先 住所1 (required)
+        subtotal:
+          type: integer
+          readOnly: true
+        tax_total:
+          type: integer
+          readOnly: true
+        total:
+          type: integer
+          readOnly: true
+        total_quantity:
+          type: integer
+        cod_total:
+          type: integer
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesOrderLine'
+        confirmations:
+          type: array
+          items:
+            type: object
+        updated_at:
+          type: string
+          readOnly: true
+          example: '2018-01-01 23:59:59'
+      required:
+      - code
+      - buyer_name1
+      - recipient_name1
+      - recipient_address1
+    Error:
+      type: object
+      description: Error envelope for non-400 status codes
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+    SalesOrderList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesOrder'
+        current_page:
+          type: integer
+        limit:
+          type: integer
+    SalesOrderLine:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        article_code:
+          type: string
+        quantity:
+          type: integer
+  parameters:
+    updatedAtFrom:
+      name: updated_at_from
+      in: query
+      required: false
+      description: Filter by update time (from), format Y-m-d H:i:s
+      schema:
+        type: string
+        example: '2018-01-01 23:59:59'
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
+    merchantId:
+      name: merchant_id
+      in: path
+      required: true
+      description: Merchant identifier the token is scoped to
+      schema:
+        type: string
+    updatedAtTo:
+      name: updated_at_to
+      in: query
+      required: false
+      description: Filter by update time (to), format Y-m-d H:i:s
+      schema:
+        type: string
+        example: '2018-01-01 23:59:59'
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded
+      headers:
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Validation failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    Locked:
+      description: The document status does not allow the change (423)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+          tokenUrl: https://app2.logiless.com/oauth2/token
+          refreshUrl: https://app2.logiless.com/oauth2/token
+          scopes: {}

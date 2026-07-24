@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: LOGILESS Articles Inventory API
+  version: v1
+  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.
+  contact:
+    name: LOGILESS Developers
+    url: https://app2.logiless.com/developer/
+  x-apievangelist-derived-from: https://app2.logiless.com/developer/documents/specifications
+servers:
+- url: https://app2.logiless.com/api/v1
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Inventory
+  description: 在庫 / 保管状況 / 日次在庫表 / 在庫操作ログ / 倉庫別発注点 — inventory & storage summaries
+paths:
+  /merchant/{merchant_id}/logical_inventory_summaries:
+    get:
+      tags:
+      - Inventory
+      operationId: listLogicalInventorySummaries
+      summary: List logical inventory summaries (在庫の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of logical inventory summaries
+  /merchant/{merchant_id}/logical_inventory_summaries/search:
+    post:
+      tags:
+      - Inventory
+      operationId: searchLogicalInventorySummaries
+      summary: Search logical inventory summaries by ids/codes
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      responses:
+        '200':
+          description: Matching summaries
+  /merchant/{merchant_id}/actual_inventory_summaries:
+    get:
+      tags:
+      - Inventory
+      operationId: listActualInventorySummaries
+      summary: List actual (storage) inventory summaries (保管状況の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of actual inventory summaries
+  /merchant/{merchant_id}/actual_inventory_summaries/search:
+    post:
+      tags:
+      - Inventory
+      operationId: searchActualInventorySummaries
+      summary: Search actual inventory summaries by ids/codes
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      responses:
+        '200':
+          description: Matching summaries
+  /merchant/{merchant_id}/daily_inventory_summaries:
+    get:
+      tags:
+      - Inventory
+      operationId: listDailyInventorySummaries
+      summary: List daily inventory summaries (日次在庫表の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of daily inventory summaries
+  /merchant/{merchant_id}/transaction_logs:
+    get:
+      tags:
+      - Inventory
+      operationId: listTransactionLogs
+      summary: List inventory transaction logs (在庫操作ログの一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of transaction logs
+  /merchant/{merchant_id}/reorder_points:
+    get:
+      tags:
+      - Inventory
+      operationId: listReorderPoints
+      summary: List per-warehouse reorder points (倉庫別発注点の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of reorder points
+components:
+  parameters:
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
+    merchantId:
+      name: merchant_id
+      in: path
+      required: true
+      description: Merchant identifier the token is scoped to
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+          tokenUrl: https://app2.logiless.com/oauth2/token
+          refreshUrl: https://app2.logiless.com/oauth2/token
+          scopes: {}

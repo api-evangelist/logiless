@@ -1,0 +1,176 @@
+openapi: 3.0.3
+info:
+  title: LOGILESS Articles API
+  version: v1
+  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.
+  contact:
+    name: LOGILESS Developers
+    url: https://app2.logiless.com/developer/
+  x-apievangelist-derived-from: https://app2.logiless.com/developer/documents/specifications
+servers:
+- url: https://app2.logiless.com/api/v1
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Articles
+  description: 商品マスタ / 商品対応表 — product master and mapping
+paths:
+  /merchant/{merchant_id}/articles:
+    get:
+      tags:
+      - Articles
+      operationId: listArticles
+      summary: List articles / product master (商品マスタの一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of articles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+  /merchant/{merchant_id}/articles/new:
+    post:
+      tags:
+      - Articles
+      operationId: createArticle
+      summary: Create an article
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+      responses:
+        '200':
+          description: Created article
+  /merchant/{merchant_id}/articles/new/multiple:
+    post:
+      tags:
+      - Articles
+      operationId: createArticlesMultiple
+      summary: Create multiple articles
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Article'
+      responses:
+        '200':
+          description: Created
+  /merchant/{merchant_id}/articles/{id}:
+    put:
+      tags:
+      - Articles
+      operationId: updateArticle
+      summary: Update an article
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+      responses:
+        '200':
+          description: Updated
+  /merchant/{merchant_id}/articles/{id}/delete:
+    delete:
+      tags:
+      - Articles
+      operationId: deleteArticle
+      summary: Delete an article
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Deleted
+  /merchant/{merchant_id}/article_maps:
+    get:
+      tags:
+      - Articles
+      operationId: listArticleMaps
+      summary: List article maps (商品対応表の一覧を取得)
+      parameters:
+      - $ref: '#/components/parameters/merchantId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: A page of article maps
+components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
+    merchantId:
+      name: merchant_id
+      in: path
+      required: true
+      description: Merchant identifier the token is scoped to
+      schema:
+        type: string
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+        name:
+          type: string
+        article_type:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+          tokenUrl: https://app2.logiless.com/oauth2/token
+          refreshUrl: https://app2.logiless.com/oauth2/token
+          scopes: {}
