@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: https://app2.logiless.com/developer/documents/specifications
+description: >-
+  LOGILESS applies dynamic rate limiting to protect system stability. High-frequency
+  requests are throttled and return HTTP 429. The recommended design target is about
+  one request per second. Current limits are surfaced on every response via X-RateLimit
+  headers.
+signal:
+  status_code: 429
+  headers:
+    - name: X-RateLimit-Limit
+      description: Maximum number of requests accepted in the window
+    - name: X-RateLimit-Remaining
+      description: Remaining requests before X-RateLimit-Reset
+    - name: X-RateLimit-Reset
+      description: Unix timestamp when the request counter resets
+recommended_rate: 1 request/second
+retry_strategy: Read X-RateLimit-Reset and apply exponential backoff; sustained overload can extend the block.
+limits:
+  - name: recommended
+    limit_count: 1
+    interval: second
+    scope: client

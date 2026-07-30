@@ -1,0 +1,55 @@
+generated: '2026-07-20'
+method: searched
+source: https://app2.logiless.com/developer/documents/errors
+format: custom-json
+description: >-
+  LOGILESS API error model. Errors are returned as JSON. HTTP 400 (validation)
+  uses a {code, message, errors{field: reason}} envelope; all other statuses use
+  a {error, error_description} envelope. This is NOT RFC 9457 problem+json.
+envelopes:
+  validation:
+    applies_to: [400]
+    shape: '{"code":400,"message":"Validation Failed","errors":{"<param>":"<reason>"}}'
+  generic:
+    applies_to: [401, 403, 423, 429, 500]
+    shape: '{"error":"<type>","error_description":"<detail>"}'
+problems:
+  - status: 400
+    title: Validation Failed
+    detail: A request parameter did not match what the LOGILESS API expected; the message reports what is wrong.
+    envelope: validation
+  - status: 401
+    title: Unauthorized
+    detail: Required authentication/authorization information is missing or incorrect.
+    envelope: generic
+  - status: 403
+    title: Forbidden
+    detail: The API is refusing to respond to the request.
+    envelope: generic
+  - status: 423
+    title: Locked
+    detail: The document status of the target resource does not permit the requested change.
+    envelope: generic
+  - status: 429
+    title: Too Many Requests
+    detail: The API request rate limit was exceeded. See X-RateLimit-* headers and back off.
+    envelope: generic
+  - status: 500
+    title: Internal Server Error
+    detail: An internal problem prevented the data from being returned.
+    envelope: generic
+oauth_token_errors:
+  source: https://app2.logiless.com/developer/documents/authentication
+  errors:
+    - code: unsupported_grant_type
+      message: The authorization grant type is not supported by the authorization server
+    - code: invalid_request
+      message: 'Missing parameter. "code" is required'
+    - code: invalid_request
+      message: The redirect URI parameter is required
+    - code: invalid_grant
+      message: Code doesn't exist or is invalid for the client
+    - code: redirect_uri_mismatch
+      message: The redirect URI is missing or do not match
+    - code: invalid_grant
+      message: The authorization code has expired

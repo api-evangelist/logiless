@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/logiless-openapi.yml
+skills:
+  - file: logiless-create-and-fulfill-order.md
+    name: Create and fulfill a sales order
+    api: openapi/logiless-openapi.yml
+    operations: [createSalesOrder, confirmSalesOrder, listOutboundDeliveries, reverseSalesOrder]
+  - file: logiless-sync-inventory.md
+    name: Sync products and read inventory
+    api: openapi/logiless-openapi.yml
+    operations: [listArticles, createArticle, listLogicalInventorySummaries, listActualInventorySummaries]
+  - file: logiless-receive-inbound-stock.md
+    name: Register and track inbound stock
+    api: openapi/logiless-openapi.yml
+    operations: [createInboundDelivery, listInboundDeliveries, reverseInboundDelivery, listSuppliers]

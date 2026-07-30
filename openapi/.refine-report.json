@@ -1,0 +1,30 @@
+{
+  "provider": "logiless",
+  "sources": [
+    "logiless-articles-api-openapi.yml",
+    "logiless-inbound-deliveries-api-openapi.yml",
+    "logiless-inter-warehouse-transfers-api-openapi.yml",
+    "logiless-inventory-api-openapi.yml",
+    "logiless-locations-api-openapi.yml",
+    "logiless-outbound-deliveries-api-openapi.yml",
+    "logiless-sales-orders-api-openapi.yml",
+    "logiless-sales-returns-api-openapi.yml",
+    "logiless-suppliers-api-openapi.yml"
+  ],
+  "outputs": [
+    "logiless-articles-api-openapi.yml",
+    "logiless-inbound-deliveries-api-openapi.yml",
+    "logiless-inter-warehouse-transfers-api-openapi.yml",
+    "logiless-inventory-api-openapi.yml",
+    "logiless-locations-api-openapi.yml",
+    "logiless-outbound-deliveries-api-openapi.yml",
+    "logiless-sales-orders-api-openapi.yml",
+    "logiless-sales-returns-api-openapi.yml",
+    "logiless-suppliers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

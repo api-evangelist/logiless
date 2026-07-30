@@ -1,0 +1,32 @@
+# LOGILESS API
+
+> LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants. Its RESTful, OAuth2-protected API lets applications read and write sales orders, outbound/inbound deliveries, returns, articles (products), multi-warehouse inventory summaries, warehouses, stores and suppliers. All resources are scoped per merchant at /api/v1/merchant/{merchant_id}/....
+
+## API
+- [Base URL](https://app2.logiless.com/api/v1): Production REST base, per-merchant paths
+- [Developer portal](https://app2.logiless.com/developer/): LOGILESS Developers documentation
+- [Specifications](https://app2.logiless.com/developer/documents/specifications): HTTP methods, JSON, rate limits
+- [Authentication](https://app2.logiless.com/developer/documents/authentication): OAuth 2.0 authorization-code flow
+- [Errors](https://app2.logiless.com/developer/documents/errors): HTTP status codes and JSON error envelope
+- [Changelog](https://app2.logiless.com/developer/changelog): Dated API change history (Atom feed available)
+
+## Specs (API Evangelist)
+- [OpenAPI (derived)](openapi/logiless-openapi.yml): 35 paths across sales orders, deliveries, inventory, masters
+- [Authentication profile](authentication/logiless-authentication.yml): OAuth2 authorization-code, 30-day tokens
+- [Conventions](conventions/logiless-conventions.yml): pagination, rate limiting, error envelope, versioning
+- [Error catalog](errors/logiless-problem-types.yml): 400/401/403/423/429/500 + OAuth token errors
+- [Rate limits](rate-limits/logiless-rate-limits.yml): 429 + X-RateLimit-* headers, ~1 req/sec
+- [Lifecycle](lifecycle/logiless-lifecycle.yml): uri-path v1 versioning, changelog
+- [Changelog](changelog/logiless-changelog.yml): recent dated entries
+- [Data model](data-model/logiless-data-model.yml): OMS/WMS entity-relationship graph
+- [Conformance](conformance/logiless-conformance.yml): OAuth2, RFC 6750, rate-limit headers, pagination
+- [MCP (candidate)](mcp/logiless-mcp.yml): derived one-tool-per-operation server
+
+## Docs
+- [Product site](https://www.logiless.com/): LOGILESS EC 自動出荷システム
+- [API feature page](https://www.logiless.com/features/api/): API 機能
+- [Help center](https://support.logiless.com/): マーチャント / オペレーター向けヘルプ
+- [Pricing](https://www.logiless.com/price/): 料金
+- [Blog](https://www.logiless.com/blog/): LOGILESS blog
+- [Privacy policy](https://www.logiless.com/legal/privacy-policy/): プライバシーポリシー
+- [Terms](https://www.logiless.com/legal/terms/): 利用規約

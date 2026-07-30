@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for LOGILESS API
+  version: 1.0.0
+extends: openapi/logiless-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Spec DERIVED from public LOGILESS Developers docs; not an official artifact.
+        Real OAuth2 auth, rate-limit headers, error envelope and per-merchant
+        resource model captured.
+  - target: $.info
+    update:
+      x-api-category: [logistics, ecommerce, order-management, warehouse-management, inventory]
+  - target: $.info
+    update:
+      x-agent-ready: true
+      x-mcp-candidate: mcp/logiless-mcp.yml
+  - target: $.components.schemas.SalesOrder
+    update:
+      x-primary-entity: true
+      x-data-model: data-model/logiless-data-model.yml

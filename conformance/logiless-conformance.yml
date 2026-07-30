@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/logiless-openapi.yml
+description: Cross-cutting standards conformance for the LOGILESS API, derived from the spec and developer docs.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes type oauth2 (authorization-code); docs cite RFC 6749.
+  - id: bearer-token-rfc6750
+    conforms: true
+    evidence: 'Authorization: Bearer {token}; docs cite RFC 6750.'
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery or id_token surface.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom JSON envelope, not application/problem+json.
+  - id: rate-limit-headers
+    conforms: true
+    evidence: X-RateLimit-Limit/Remaining/Reset and HTTP 429 documented.
+  - id: pagination
+    conforms: true
+    evidence: page-number pagination via limit/page params with a data[] envelope.
+  - id: rest-crud
+    conforms: true
+    evidence: GET/POST/PUT/DELETE map to read/create/update/delete over JSON resources.
+  - id: json-api
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: scim2
+    conforms: false

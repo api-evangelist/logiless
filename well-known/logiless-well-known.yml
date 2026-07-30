@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+description: >-
+  Probe of the /.well-known/ discovery surface for LOGILESS hosts. No documents
+  were served (all 404) as of 2026-07-20 — recorded as an honest negative result.
+hosts:
+  - host: https://app2.logiless.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://www.logiless.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404

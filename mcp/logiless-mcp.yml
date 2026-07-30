@@ -1,0 +1,61 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/logiless-openapi.yml
+description: >-
+  Candidate MCP server for the LOGILESS API. No official LOGILESS MCP server was
+  found (2026-07-20). Tools are derived one-per-operation from the derived OpenAPI
+  and would require the merchant's OAuth access token plus merchant_id.
+server:
+  name: logiless
+  transport: http
+  url: null
+auth:
+  type: oauth2
+  ref: authentication/logiless-authentication.yml
+tools:
+  - name: list_sales_orders
+    description: List sales orders for a merchant
+    source_operation: openapi/logiless-openapi.yml#listSalesOrders
+  - name: search_sales_orders
+    description: Search sales orders by ids or codes
+    source_operation: openapi/logiless-openapi.yml#searchSalesOrders
+  - name: create_sales_order
+    description: Create a sales order
+    source_operation: openapi/logiless-openapi.yml#createSalesOrder
+  - name: update_sales_order
+    description: Update a sales order
+    source_operation: openapi/logiless-openapi.yml#updateSalesOrder
+  - name: confirm_sales_order
+    description: Confirm a pending sales order
+    source_operation: openapi/logiless-openapi.yml#confirmSalesOrder
+  - name: list_outbound_deliveries
+    description: List outbound deliveries
+    source_operation: openapi/logiless-openapi.yml#listOutboundDeliveries
+  - name: list_inbound_deliveries
+    description: List inbound deliveries
+    source_operation: openapi/logiless-openapi.yml#listInboundDeliveries
+  - name: create_inbound_delivery
+    description: Create an inbound delivery
+    source_operation: openapi/logiless-openapi.yml#createInboundDelivery
+  - name: list_articles
+    description: List product master articles
+    source_operation: openapi/logiless-openapi.yml#listArticles
+  - name: create_article
+    description: Create an article
+    source_operation: openapi/logiless-openapi.yml#createArticle
+  - name: list_logical_inventory_summaries
+    description: List logical inventory summaries
+    source_operation: openapi/logiless-openapi.yml#listLogicalInventorySummaries
+  - name: list_actual_inventory_summaries
+    description: List actual (storage) inventory summaries
+    source_operation: openapi/logiless-openapi.yml#listActualInventorySummaries
+  - name: list_warehouses
+    description: List warehouses
+    source_operation: openapi/logiless-openapi.yml#listWarehouses
+  - name: list_stores
+    description: List stores
+    source_operation: openapi/logiless-openapi.yml#listStores
+  - name: list_suppliers
+    description: List suppliers
+    source_operation: openapi/logiless-openapi.yml#listSuppliers

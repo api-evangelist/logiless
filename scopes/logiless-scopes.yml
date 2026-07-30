@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/logiless-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/logiless-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+scopes: []

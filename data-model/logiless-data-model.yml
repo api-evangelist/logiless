@@ -1,0 +1,119 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/logiless-openapi.yml
+description: >-
+  Entity-relationship graph for the LOGILESS OMS/WMS domain, derived from the
+  developer interface docs. All records are scoped to a Merchant. IDs are numeric;
+  most entities also carry a human `code`.
+entities:
+  - name: Merchant
+    domain: account
+    note: Root scope; the OAuth token is bound to a merchant. All paths are /merchant/{merchant_id}/...
+  - name: SalesOrder
+    japanese: 受注伝票
+    key: id
+    code: code
+    statuses: [document_status, allocation_status, delivery_status, incoming_payment_status, authorization_status]
+  - name: SalesOrderLine
+    japanese: 明細行
+    key: id
+  - name: OutboundDelivery
+    japanese: 出荷伝票
+    key: id
+  - name: InboundDelivery
+    japanese: 入荷予定伝票
+    key: id
+  - name: SalesReturn
+    japanese: 売上返品
+    key: id
+  - name: InterWarehouseTransfer
+    japanese: 倉庫間移動伝票
+    key: id
+  - name: Article
+    japanese: 商品マスタ
+    key: id
+    code: code
+  - name: ArticleMap
+    japanese: 商品対応表
+    key: id
+  - name: Store
+    japanese: 店舗
+    key: id
+    code: code
+  - name: Warehouse
+    japanese: 倉庫
+    key: id
+  - name: Location
+    japanese: ロケーション
+    key: id
+  - name: Supplier
+    japanese: 仕入先マスタ
+    key: id
+    code: code
+  - name: LogicalInventorySummary
+    japanese: 在庫
+  - name: ActualInventorySummary
+    japanese: 保管状況
+  - name: DailyInventorySummary
+    japanese: 日次在庫表
+  - name: TransactionLog
+    japanese: 在庫操作ログ
+  - name: ReorderPoint
+    japanese: 倉庫別発注点
+relationships:
+  - from: SalesOrder
+    to: Merchant
+    type: belongs_to
+    via: merchant_id
+  - from: SalesOrder
+    to: SalesOrderLine
+    type: has_many
+    via: lines
+  - from: SalesOrder
+    to: Store
+    type: belongs_to
+    via: store
+  - from: SalesOrderLine
+    to: Article
+    type: belongs_to
+    via: article_code
+  - from: OutboundDelivery
+    to: SalesOrder
+    type: belongs_to
+    via: sales_order
+  - from: SalesReturn
+    to: SalesOrder
+    type: belongs_to
+    via: sales_order
+  - from: InboundDelivery
+    to: Supplier
+    type: belongs_to
+    via: supplier
+  - from: InboundDelivery
+    to: Warehouse
+    type: belongs_to
+    via: warehouse
+  - from: InterWarehouseTransfer
+    to: Warehouse
+    type: has_many
+    via: from_warehouse / to_warehouse
+  - from: Location
+    to: Warehouse
+    type: belongs_to
+    via: warehouse_id
+  - from: LogicalInventorySummary
+    to: Article
+    type: belongs_to
+    via: article
+  - from: ActualInventorySummary
+    to: Warehouse
+    type: belongs_to
+    via: warehouse
+  - from: ReorderPoint
+    to: Warehouse
+    type: belongs_to
+    via: warehouse
+  - from: ArticleMap
+    to: Article
+    type: belongs_to
+    via: article

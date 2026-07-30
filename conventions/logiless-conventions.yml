@@ -1,0 +1,57 @@
+generated: '2026-07-20'
+method: searched
+source: https://app2.logiless.com/developer/documents/specifications
+description: Cross-cutting request/response conventions for the LOGILESS API, from the specifications and authentication docs.
+authentication:
+  style: oauth2-bearer
+  header: 'Authorization: Bearer {access_token}'
+  ref: authentication/logiless-authentication.yml
+base_url: https://app2.logiless.com/api/v1
+resource_pattern: /merchant/{merchant_id}/{resource}
+http_methods:
+  GET: read
+  POST: create
+  PUT: update
+  DELETE: delete
+content_type:
+  request: application/json
+  note: Request bodies must be UTF-8; Japanese text must be \uNNNN escaped.
+pagination:
+  style: page-number
+  params:
+    - name: limit
+      default: 20
+      max: 500
+    - name: page
+      default: 1
+  response_envelope:
+    data_field: data
+  filters:
+    - name: updated_at_from
+      format: 'Y-m-d H:i:s'
+    - name: updated_at_to
+      format: 'Y-m-d H:i:s'
+  search_endpoints: Bulk lookup by ids/codes is available via POST .../search on sales_orders and inventory summaries.
+rate_limiting:
+  status_code: 429
+  guidance: ~1 request per second recommended; thresholds adjust dynamically.
+  headers:
+    - X-RateLimit-Limit
+    - X-RateLimit-Remaining
+    - X-RateLimit-Reset
+  retry: Honor X-RateLimit-Reset (Unix timestamp); use exponential backoff.
+  ref: rate-limits/
+idempotency:
+  supported: false
+  note: >-
+    LOGILESS does not document an idempotency-key header. Duplicate-order guarding
+    is instead handled by the `code` (受注コード) uniqueness check on create, which can
+    be overridden with an allow-duplicate flag. Line and order corrections are made
+    via explicit /reversal endpoints rather than idempotent replays.
+error_envelope:
+  ref: errors/logiless-problem-types.yml
+  note: 400 uses {code,message,errors}; other statuses use {error,error_description}.
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/logiless-lifecycle.yml

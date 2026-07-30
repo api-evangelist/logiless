@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://app2.logiless.com/developer/
+description: Versioning, change communication and rate-limit posture for the LOGILESS API.
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://app2.logiless.com/api/v1
+changelog:
+  url: https://app2.logiless.com/developer/changelog
+  feed: https://app2.logiless.com/developer/changelog/feed
+  ref: changelog/logiless-changelog.yml
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation/sunset policy is published; changes are announced via the dated changelog.
+sla:
+  url: null
+  note: No public SLA/uptime target documented on the developer portal.
+status_page: null
+status_page_note: >-
+  No active LOGILESS status page was found (logiless.statuspage.io redirects to
+  statuspage.io and is not a live branded page as of 2026-07-20).
+rate_limit:
+  status_code: 429
+  recommended: ~1 request/second
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset]
+deprecated_operations: []

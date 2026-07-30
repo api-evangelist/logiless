@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: searched
+source: https://app2.logiless.com/developer/changelog
+feed: https://app2.logiless.com/developer/changelog/feed
+scheme: dated
+current_version: v1
+description: Recent dated entries from the LOGILESS API changelog (Atom feed). Titles kept verbatim (Japanese).
+entries:
+  - date: '2026-06-11'
+    breaking: false
+    highlight: 在庫/保管状況の一覧取得APIの `limit` 上限を 100 から 500 に拡張
+  - date: '2026-04-08'
+    breaking: false
+    highlight: 受注伝票の取得にタグ検索パラメータ (tags_or / tags_and / tags_not) を追加
+  - date: '2026-02-24'
+    breaking: false
+    highlight: 店舗のプロパティに `code` 店舗コードを追加
+  - date: '2026-02-18'
+    breaking: false
+    highlight: アクセス範囲の制限（オプション）を追加 — merchant_id / store_id scoping at authorization
+  - date: '2026-02-02'
+    breaking: false
+    highlight: 在庫/保管状況のプロパティに `inventory_segment_name` を追加（在庫区分利用時）
+  - date: '2026-01-15'
+    breaking: false
+    highlight: 在庫操作ログ取得APIの日付パラメータのバリデーションを追加
+  - date: '2026-01-06'
+    breaking: false
+    highlight: 入荷予定伝票のlinesのプロパティに `inventory_segment_name` を追加
+  - date: '2025-12-02'
+    breaking: false
+    highlight: 入荷予定伝票lines `scheduled_delivery_date`、在庫 `transferring` / `logical_reserved` を追加
+  - date: '2025-11-26'
+    breaking: false
+    highlight: 受注伝票/売上返品に `store_coupon` / `mall_coupon` を追加
+  - date: '2025-11-07'
+    breaking: false
+    highlight: 受注伝票のプロパティに `platform_attributes` プラットフォーム属性を追加
+  - date: '2025-11-04'
+    breaking: false
+    highlight: 売上返品の一覧を取得 API を追加
+  - date: '2025-10-29'
+    breaking: false
+    highlight: 受注伝票のプロパティに `object_code` を追加
+  - date: '2025-10-17'
+    breaking: false
+    highlight: 受注伝票を複数件まとめて登録 API を追加
+  - date: '2025-10-08'
+    breaking: false
+    highlight: 受注伝票の確認待ち関連 API（確認待ちにする/解除する）と `confirmations` プロパティを追加
+  - date: '2025-10-07'
+    breaking: false
+    highlight: 受注伝票に明細行を追加する API を追加
