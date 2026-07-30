@@ -1,25 +1,258 @@
 aid: logiless
 name: Logiless
-description: Logiless is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order
+  management (OMS) and warehouse management (WMS) for e-commerce merchants —
+  automating order intake from marketplaces and shopping carts (Rakuten, Shopify,
+  ColorMe, futureshop, ec-force and more), inventory synchronization, allocation,
+  shipping-label issuance and warehouse operations. LOGILESS exposes a RESTful,
+  OAuth2-protected API (scoped per merchant) for reading and writing sales orders,
+  outbound and inbound deliveries, sales returns, inter-warehouse transfers,
+  articles (product master), multi-layer inventory summaries, warehouses, stores
+  and suppliers. The company is a 500 Global portfolio company. This profile was
+  enriched by the API Evangelist pipeline from LOGILESS's public developer
+  documentation; the OpenAPI here is derived and not an official LOGILESS artifact.
 url: https://raw.githubusercontent.com/api-evangelist/logiless/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://support.logiless.com/wp-content/uploads/2021/06/ogp.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-developer-docs
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
-- Company
-apis: []
+- Logistics
+- E-commerce
+- Order Management
+- Warehouse Management
+- Inventory
+- Fulfillment
+- Shipping
+- OMS
+- WMS
+- Japan
+apis:
+- aid: logiless:logiless-articles-api
+  name: Logiless Articles API
+  description: 商品マスタ / 商品対応表 — product master and mapping
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-articles-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-inbound-deliveries-api
+  name: Logiless Inbound Deliveries API
+  description: 入荷予定伝票 — expected inbound shipments
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Inbound Deliveries
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-inbound-deliveries-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-inter-warehouse-transfers-api
+  name: Logiless Inter-Warehouse Transfers API
+  description: 倉庫間移動伝票 — stock transfers between warehouses
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Inter-Warehouse Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-inter-warehouse-transfers-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-inventory-api
+  name: Logiless Inventory API
+  description: 在庫 / 保管状況 / 日次在庫表 / 在庫操作ログ / 倉庫別発注点 — inventory & storage summaries
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-locations-api
+  name: Logiless Locations API
+  description: 店舗 / 倉庫 / ロケーション — stores, warehouses and locations
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-locations-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-outbound-deliveries-api
+  name: Logiless Outbound Deliveries API
+  description: 出荷伝票 — shipment records
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Outbound Deliveries
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-outbound-deliveries-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-sales-orders-api
+  name: Logiless Sales Orders API
+  description: 受注伝票 — order intake, editing, confirmation and reversal
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Sales Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-sales-orders-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-sales-returns-api
+  name: Logiless Sales Returns API
+  description: 売上返品 — returns
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Sales Returns
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-sales-returns-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
+- aid: logiless:logiless-suppliers-api
+  name: Logiless Suppliers API
+  description: 仕入先マスタ — supplier master
+  humanURL: https://app2.logiless.com/developer/
+  baseURL: https://app2.logiless.com/api/v1
+  tags:
+  - Suppliers
+  properties:
+  - type: OpenAPI
+    url: openapi/logiless-suppliers-api-openapi.yml
+  - type: Documentation
+    url: https://app2.logiless.com/developer/
+  - type: APIReference
+    url: https://app2.logiless.com/developer/documents/specifications
+  - type: Authentication
+    url: https://app2.logiless.com/developer/documents/authentication
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: OpenAPI
+  url: openapi/logiless-openapi.yml
+- type: Authentication
+  url: authentication/logiless-authentication.yml
+- type: OAuthScopes
+  url: scopes/logiless-scopes.yml
+- type: Conventions
+  url: conventions/logiless-conventions.yml
+- type: ErrorCatalog
+  url: errors/logiless-problem-types.yml
+- type: RateLimits
+  url: rate-limits/logiless-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/logiless-lifecycle.yml
+- type: ChangeLog
+  url: changelog/logiless-changelog.yml
+- type: DataModel
+  url: data-model/logiless-data-model.yml
+- type: Conformance
+  url: conformance/logiless-conformance.yml
+- type: MCPServer
+  url: mcp/logiless-mcp.yml
+- type: LLMsTxt
+  url: llms/logiless-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/logiless-domain-security.yml
+- type: DeveloperPortal
+  url: https://app2.logiless.com/developer/
+- type: Documentation
+  url: https://support.logiless.com/
+- type: APIReference
+  url: https://app2.logiless.com/developer/documents/specifications
+- type: GettingStarted
+  url: https://app2.logiless.com/developer/documents/authentication
+- type: Support
+  url: https://support.logiless.com/
+- type: Blog
+  url: https://www.logiless.com/blog/
+- type: Pricing
+  url: https://www.logiless.com/price/
+- type: SignUp
+  url: https://app2.logiless.com/merchant/sign_up
+- type: Login
+  url: https://app2.logiless.com/merchant/sign_in
+- type: TermsOfService
+  url: https://www.logiless.com/legal/terms/
+- type: PrivacyPolicy
+  url: https://www.logiless.com/legal/privacy-policy/
+- type: Contact
+  url: https://go.logiless.com/contact
 - type: Website
-  url: https://logiless.co.jp
+  url: https://www.logiless.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 19
+  pass: local-v1
