@@ -197,8 +197,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/logiless-overlay.yaml
 - type: OpenAPI
-  url: openapi/logiless-openapi.yml
+  url: openapi/_original/logiless-openapi.yml
 - type: Authentication
   url: authentication/logiless-authentication.yml
 - type: OAuthScopes
