@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LOGILESS Articles Inventory API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://app2.logiless.com/oauth/v2/auth",
+      "accessTokenUrl": "https://app2.logiless.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List logical inventory summaries (在庫の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/logical_inventory_summaries",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List logical inventory summaries (在庫の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "Search logical inventory summaries by ids/codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/logical_inventory_summaries/search",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ]
+          },
+          "docs": "Search logical inventory summaries by ids/codes"
+        },
+        {
+          "info": {
+            "name": "List actual (storage) inventory summaries (保管状況の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/actual_inventory_summaries",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List actual (storage) inventory summaries (保管状況の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "Search actual inventory summaries by ids/codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/actual_inventory_summaries/search",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ]
+          },
+          "docs": "Search actual inventory summaries by ids/codes"
+        },
+        {
+          "info": {
+            "name": "List daily inventory summaries (日次在庫表の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/daily_inventory_summaries",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List daily inventory summaries (日次在庫表の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "List inventory transaction logs (在庫操作ログの一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/transaction_logs",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List inventory transaction logs (在庫操作ログの一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "List per-warehouse reorder points (倉庫別発注点の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/reorder_points",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List per-warehouse reorder points (倉庫別発注点の一覧を取得)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,762 @@
+{
+  "item": [
+    {
+      "id": "ee790416-3bc6-4e2c-bbc1-733f86a3588c",
+      "name": "Inventory",
+      "description": {
+        "content": "在庫 / 保管状況 / 日次在庫表 / 在庫操作ログ / 倉庫別発注点 — inventory & storage summaries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53af51e5-9954-4b51-b90e-31a71955e722",
+          "name": "List logical inventory summaries (在庫の一覧を取得)",
+          "request": {
+            "name": "List logical inventory summaries (在庫の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "logical_inventory_summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd964103-f410-4024-8df6-35dea589b81a",
+              "name": "A page of logical inventory summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "logical_inventory_summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8398167-e7eb-4cb3-8167-1a5cd1f5c7fd",
+          "name": "Search logical inventory summaries by ids/codes",
+          "request": {
+            "name": "Search logical inventory summaries by ids/codes",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "logical_inventory_summaries",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c8aa26f-e9f2-4b9c-96a5-c37dce5b33a7",
+              "name": "Matching summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "logical_inventory_summaries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a823215-7e7c-47f3-bb52-1186665664c5",
+          "name": "List actual (storage) inventory summaries (保管状況の一覧を取得)",
+          "request": {
+            "name": "List actual (storage) inventory summaries (保管状況の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "actual_inventory_summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bcc1838-9bbd-4d00-ba3b-ef4762edbc86",
+              "name": "A page of actual inventory summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "actual_inventory_summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1270a740-75cb-477f-9215-ca865092183b",
+          "name": "Search actual inventory summaries by ids/codes",
+          "request": {
+            "name": "Search actual inventory summaries by ids/codes",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "actual_inventory_summaries",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce96a9d3-2dcf-47c5-93ee-9a8cc554321f",
+              "name": "Matching summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "actual_inventory_summaries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68625f84-c455-4686-9307-0b8a42248115",
+          "name": "List daily inventory summaries (日次在庫表の一覧を取得)",
+          "request": {
+            "name": "List daily inventory summaries (日次在庫表の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "daily_inventory_summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea865652-c32b-46ea-9dc5-df6a7325a558",
+              "name": "A page of daily inventory summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "daily_inventory_summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5548cb2b-ab80-48c0-aac5-8e403f4a910b",
+          "name": "List inventory transaction logs (在庫操作ログの一覧を取得)",
+          "request": {
+            "name": "List inventory transaction logs (在庫操作ログの一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "transaction_logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4390a8f4-ec78-4cb5-9251-217b217c1af3",
+              "name": "A page of transaction logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "transaction_logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1f2726f-d8d0-4253-ac09-361df972990e",
+          "name": "List per-warehouse reorder points (倉庫別発注点の一覧を取得)",
+          "request": {
+            "name": "List per-warehouse reorder points (倉庫別発注点の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "reorder_points"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42e635d0-b57f-47ba-be9b-ee04f5c6a677",
+              "name": "A page of reorder points",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "reorder_points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b44b4d2-13d0-479b-8311-f5b152f06c8f",
+    "name": "LOGILESS Articles Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

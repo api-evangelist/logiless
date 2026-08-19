@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LOGILESS Articles Locations API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://app2.logiless.com/oauth/v2/auth",
+      "accessTokenUrl": "https://app2.logiless.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stores (店舗の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/stores",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List stores (店舗の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "List warehouses (倉庫の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/warehouses",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List warehouses (倉庫の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "List locations within a warehouse (ロケーションの一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/warehouses/:warehouse_id/locations",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "warehouse_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List locations within a warehouse (ロケーションの一覧を取得)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

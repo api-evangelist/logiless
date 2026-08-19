@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LOGILESS Articles API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://app2.logiless.com/oauth/v2/auth",
+      "accessTokenUrl": "https://app2.logiless.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List articles / product master (商品マスタの一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/articles",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List articles / product master (商品マスタの一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "Create an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/articles/new",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an article"
+        },
+        {
+          "info": {
+            "name": "Create multiple articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/articles/new/multiple",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple articles"
+        },
+        {
+          "info": {
+            "name": "Update an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/articles/:id",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an article"
+        },
+        {
+          "info": {
+            "name": "Delete an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/articles/:id/delete",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an article"
+        },
+        {
+          "info": {
+            "name": "List article maps (商品対応表の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/article_maps",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List article maps (商品対応表の一覧を取得)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

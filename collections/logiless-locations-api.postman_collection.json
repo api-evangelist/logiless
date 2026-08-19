@@ -1,0 +1,392 @@
+{
+  "item": [
+    {
+      "id": "b89af151-7a86-4e34-b1f6-3f96151020b2",
+      "name": "Locations",
+      "description": {
+        "content": "店舗 / 倉庫 / ロケーション — stores, warehouses and locations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e9bba9e-1656-4424-9a8e-d55fbc216d4e",
+          "name": "List stores (店舗の一覧を取得)",
+          "request": {
+            "name": "List stores (店舗の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e56db488-a928-4f61-9818-4ca0fb3f0cc3",
+              "name": "A page of stores",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "516efc57-fa62-439c-b94f-afdd578f9fb7",
+          "name": "List warehouses (倉庫の一覧を取得)",
+          "request": {
+            "name": "List warehouses (倉庫の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "warehouses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60248b09-2a91-46fd-9742-cc01f3c794ff",
+              "name": "A page of warehouses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "warehouses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c276bed-174e-471a-b485-5548295cd340",
+          "name": "List locations within a warehouse (ロケーションの一覧を取得)",
+          "request": {
+            "name": "List locations within a warehouse (ロケーションの一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "warehouses",
+                ":warehouse_id",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "warehouse_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d47bd8c7-387f-446e-8837-b731c4fa5b43",
+              "name": "A page of locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "warehouses",
+                    ":warehouse_id",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "warehouse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6d7e3b8-8106-4198-8b7e-e50ad9fcf6e9",
+    "name": "LOGILESS Articles Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "item": [
+    {
+      "id": "fcc93547-3837-431c-bac1-e19861b7ed4e",
+      "name": "Suppliers",
+      "description": {
+        "content": "仕入先マスタ — supplier master",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0be2b1bb-982f-4eac-b6d6-50e27105c7f6",
+          "name": "List suppliers (仕入先マスタの一覧を取得)",
+          "request": {
+            "name": "List suppliers (仕入先マスタの一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "suppliers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d28315b9-988f-4f79-8b07-892e298089b9",
+              "name": "A page of suppliers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 4948,\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 7370,\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb9ad9cf-44ef-4a3b-8c77-987bb34b9c35",
+          "name": "Create a supplier",
+          "request": {
+            "name": "Create a supplier",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "suppliers",
+                "new"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd955d2d-af80-4b04-8d55-f980dbf8eca9",
+              "name": "Created supplier",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "suppliers",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49fa4cb6-0c20-400f-b3ec-c1110350e0f3",
+          "name": "Update a supplier",
+          "request": {
+            "name": "Update a supplier",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "suppliers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1d5f05c-de52-42ee-9384-1bc4d4d441ec",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "suppliers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6775aba0-1d0e-46da-9bc0-7e48e4963bb0",
+    "name": "LOGILESS Articles Suppliers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

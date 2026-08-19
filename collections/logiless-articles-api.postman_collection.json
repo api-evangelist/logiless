@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "0e7e914e-b26d-4439-af6e-81d70964d0d5",
+      "name": "Articles",
+      "description": {
+        "content": "商品マスタ / 商品対応表 — product master and mapping",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8938f9c-599a-497d-83e0-d27a05d57f3a",
+          "name": "List articles / product master (商品マスタの一覧を取得)",
+          "request": {
+            "name": "List articles / product master (商品マスタの一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62f8c69e-c276-42c1-84d1-438bdfc6c22c",
+              "name": "A page of articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 535,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"article_type\": \"string\"\n    },\n    {\n      \"id\": 7771,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"article_type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f480823f-0a62-460c-b442-d5cd26e98079",
+          "name": "Create an article",
+          "request": {
+            "name": "Create an article",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "articles",
+                "new"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\",\n  \"article_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de12b754-0ccb-4a19-a73a-0b653af23b15",
+              "name": "Created article",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "articles",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\",\n  \"article_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77626bf4-2a0d-40f8-9cc7-525c2fc16d8b",
+          "name": "Create multiple articles",
+          "request": {
+            "name": "Create multiple articles",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "articles",
+                "new",
+                "multiple"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"article_type\": \"<string>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"article_type\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dee14980-5672-43cc-8566-da1d1de03112",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "articles",
+                    "new",
+                    "multiple"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"article_type\": \"<string>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"article_type\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b194f77-b12b-41ed-a9ae-cd29a63e84bf",
+          "name": "Update an article",
+          "request": {
+            "name": "Update an article",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "articles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\",\n  \"article_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92c0696c-9dcb-4a0f-9623-67b3b66ab81e",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "articles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\",\n  \"article_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9d8ab94-9162-4fa2-a29e-ae5df6f03c37",
+          "name": "Delete an article",
+          "request": {
+            "name": "Delete an article",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "articles",
+                ":id",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b11a6290-d8a5-49ef-816c-25cf4d6900c2",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "articles",
+                    ":id",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0aad8856-6f10-4747-a764-27ec68c0f861",
+          "name": "List article maps (商品対応表の一覧を取得)",
+          "request": {
+            "name": "List article maps (商品対応表の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "article_maps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1ea4039-4fed-4c1d-a3d5-4338f8da793d",
+              "name": "A page of article maps",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "article_maps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0e4e2249-55d7-41be-bf1a-bfdd7cea2ea1",
+    "name": "LOGILESS Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

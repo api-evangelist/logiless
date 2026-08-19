@@ -1,0 +1,275 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LOGILESS Articles Sales Orders API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://app2.logiless.com/oauth/v2/auth",
+      "accessTokenUrl": "https://app2.logiless.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sales Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sales orders (受注伝票の一覧を取得)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              },
+              {
+                "name": "updated_at_from",
+                "value": "",
+                "type": "query",
+                "description": "Filter by update time (from), format Y-m-d H:i:s"
+              },
+              {
+                "name": "updated_at_to",
+                "value": "",
+                "type": "query",
+                "description": "Filter by update time (to), format Y-m-d H:i:s"
+              }
+            ]
+          },
+          "docs": "List sales orders (受注伝票の一覧を取得)"
+        },
+        {
+          "info": {
+            "name": "Search sales orders by ids or codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/search",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search sales orders by ids or codes"
+        },
+        {
+          "info": {
+            "name": "Create a sales order (受注伝票を登録)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/new",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a sales order (受注伝票を登録)"
+        },
+        {
+          "info": {
+            "name": "Create multiple sales orders in one request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/new/multiple",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple sales orders in one request"
+        },
+        {
+          "info": {
+            "name": "Update a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/:id",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a sales order"
+        },
+        {
+          "info": {
+            "name": "Reverse (cancel) a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/:id/reversal",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reverse (cancel) a sales order"
+        },
+        {
+          "info": {
+            "name": "Add a line to a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/:id/sales_order_lines/new",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a line to a sales order"
+        },
+        {
+          "info": {
+            "name": "Put a sales order into pending-confirmation state",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/:sales_order_id/sales_order_confirmations/new",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "sales_order_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Put a sales order into pending-confirmation state"
+        },
+        {
+          "info": {
+            "name": "Confirm a pending sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/sales_orders/:sales_order_id/sales_order_confirmations/:sales_order_confirmation_id/confirmation",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "sales_order_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sales_order_confirmation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Confirm a pending sales order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

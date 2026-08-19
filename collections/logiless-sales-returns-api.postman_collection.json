@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "0f33636d-189f-425d-8ef7-b87e4641293a",
+      "name": "Sales Returns",
+      "description": {
+        "content": "売上返品 — returns",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b04307b4-7926-4b09-8c5c-848c77a811df",
+          "name": "List sales returns (売上返品の一覧を取得)",
+          "request": {
+            "name": "List sales returns (売上返品の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_returns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1147328-a63d-4366-898a-f5822b59dc1d",
+              "name": "A page of sales returns",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_returns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2bed7488-6672-468d-89ae-5985c6a7ff9f",
+    "name": "LOGILESS Articles Sales Returns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

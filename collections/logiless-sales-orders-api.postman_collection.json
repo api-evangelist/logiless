@@ -1,0 +1,1430 @@
+{
+  "item": [
+    {
+      "id": "fdc0884b-ecf8-4b69-804d-202c3ba08972",
+      "name": "Sales Orders",
+      "description": {
+        "content": "受注伝票 — order intake, editing, confirmation and reversal",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "170e0b81-06e6-41eb-8b14-116238a6d9f5",
+          "name": "List sales orders (受注伝票の一覧を取得)",
+          "request": {
+            "name": "List sales orders (受注伝票の一覧を取得)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return. Default 20, maximum 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Default 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_from",
+                  "value": "<string>",
+                  "description": "Filter by update time (from), format Y-m-d H:i:s"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_to",
+                  "value": "<string>",
+                  "description": "Filter by update time (to), format Y-m-d H:i:s"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a61c7344-e1d5-4b7a-ab39-3b5802c2ab3c",
+              "name": "A page of sales orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_at_from",
+                      "value": "2018-01-01 23:59:59"
+                    },
+                    {
+                      "key": "updated_at_to",
+                      "value": "2018-01-01 23:59:59"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Maximum number of requests accepted in the window",
+                  "key": "X-RateLimit-Limit",
+                  "value": "158"
+                },
+                {
+                  "disabled": false,
+                  "description": "Remaining requests before X-RateLimit-Reset",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "158"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the request counter resets",
+                  "key": "X-RateLimit-Reset",
+                  "value": "158"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"code\": \"string\",\n      \"buyer_name1\": \"string\",\n      \"recipient_name1\": \"string\",\n      \"recipient_address1\": \"string\",\n      \"id\": 6535,\n      \"object_code\": \"string\",\n      \"parent_code\": \"string\",\n      \"document_status\": \"string\",\n      \"allocation_status\": \"string\",\n      \"delivery_status\": \"string\",\n      \"incoming_payment_status\": \"string\",\n      \"authorization_status\": \"string\",\n      \"customer_code\": \"string\",\n      \"buyer_email\": \"string\",\n      \"recipient_post_code\": \"string\",\n      \"recipient_prefecture\": \"string\",\n      \"subtotal\": 7163,\n      \"tax_total\": 3918,\n      \"total\": 1852,\n      \"total_quantity\": 1608,\n      \"cod_total\": 7258,\n      \"lines\": [\n        {\n          \"id\": 8734,\n          \"article_code\": \"string\",\n          \"quantity\": 1883\n        },\n        {\n          \"id\": 3796,\n          \"article_code\": \"string\",\n          \"quantity\": 162\n        }\n      ],\n      \"updated_at\": \"2018-01-01 23:59:59\"\n    },\n    {\n      \"code\": \"string\",\n      \"buyer_name1\": \"string\",\n      \"recipient_name1\": \"string\",\n      \"recipient_address1\": \"string\",\n      \"id\": 718,\n      \"object_code\": \"string\",\n      \"parent_code\": \"string\",\n      \"document_status\": \"string\",\n      \"allocation_status\": \"string\",\n      \"delivery_status\": \"string\",\n      \"incoming_payment_status\": \"string\",\n      \"authorization_status\": \"string\",\n      \"customer_code\": \"string\",\n      \"buyer_email\": \"string\",\n      \"recipient_post_code\": \"string\",\n      \"recipient_prefecture\": \"string\",\n      \"subtotal\": 9030,\n      \"tax_total\": 3627,\n      \"total\": 9716,\n      \"total_quantity\": 2205,\n      \"cod_total\": 2224,\n      \"lines\": [\n        {\n          \"id\": 2758,\n          \"article_code\": \"string\",\n          \"quantity\": 4651\n        },\n        {\n          \"id\": 916,\n          \"article_code\": \"string\",\n          \"quantity\": 3010\n        }\n      ],\n      \"updated_at\": \"2018-01-01 23:59:59\"\n    }\n  ],\n  \"current_page\": 6287,\n  \"limit\": 7909\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbec38f0-b998-4a9a-b470-2add075c8be0",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_at_from",
+                      "value": "2018-01-01 23:59:59"
+                    },
+                    {
+                      "key": "updated_at_to",
+                      "value": "2018-01-01 23:59:59"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad37d050-655d-4bd3-ae76-af38fcb136a7",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_at_from",
+                      "value": "2018-01-01 23:59:59"
+                    },
+                    {
+                      "key": "updated_at_to",
+                      "value": "2018-01-01 23:59:59"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Maximum number of requests accepted in the window",
+                  "key": "X-RateLimit-Limit",
+                  "value": "158"
+                },
+                {
+                  "disabled": false,
+                  "description": "Remaining requests before X-RateLimit-Reset",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "158"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the request counter resets",
+                  "key": "X-RateLimit-Reset",
+                  "value": "158"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f58eb22b-5178-4875-9aec-8a1b49858b9a",
+          "name": "Search sales orders by ids or codes",
+          "request": {
+            "name": "Search sales orders by ids or codes",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"codes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b777278d-f8c3-45aa-a346-03806bc773c9",
+              "name": "Matching sales orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"codes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"code\": \"string\",\n      \"buyer_name1\": \"string\",\n      \"recipient_name1\": \"string\",\n      \"recipient_address1\": \"string\",\n      \"id\": 7642,\n      \"object_code\": \"string\",\n      \"parent_code\": \"string\",\n      \"document_status\": \"string\",\n      \"allocation_status\": \"string\",\n      \"delivery_status\": \"string\",\n      \"incoming_payment_status\": \"string\",\n      \"authorization_status\": \"string\",\n      \"customer_code\": \"string\",\n      \"buyer_email\": \"string\",\n      \"recipient_post_code\": \"string\",\n      \"recipient_prefecture\": \"string\",\n      \"subtotal\": 8731,\n      \"tax_total\": 9948,\n      \"total\": 1547,\n      \"total_quantity\": 1782,\n      \"cod_total\": 1636,\n      \"lines\": [\n        {\n          \"id\": 7439,\n          \"article_code\": \"string\",\n          \"quantity\": 7771\n        },\n        {\n          \"id\": 5277,\n          \"article_code\": \"string\",\n          \"quantity\": 5644\n        }\n      ],\n      \"updated_at\": \"2018-01-01 23:59:59\"\n    },\n    {\n      \"code\": \"string\",\n      \"buyer_name1\": \"string\",\n      \"recipient_name1\": \"string\",\n      \"recipient_address1\": \"string\",\n      \"id\": 7749,\n      \"object_code\": \"string\",\n      \"parent_code\": \"string\",\n      \"document_status\": \"string\",\n      \"allocation_status\": \"string\",\n      \"delivery_status\": \"string\",\n      \"incoming_payment_status\": \"string\",\n      \"authorization_status\": \"string\",\n      \"customer_code\": \"string\",\n      \"buyer_email\": \"string\",\n      \"recipient_post_code\": \"string\",\n      \"recipient_prefecture\": \"string\",\n      \"subtotal\": 5257,\n      \"tax_total\": 1989,\n      \"total\": 162,\n      \"total_quantity\": 3639,\n      \"cod_total\": 4059,\n      \"lines\": [\n        {\n          \"id\": 9878,\n          \"article_code\": \"string\",\n          \"quantity\": 4593\n        },\n        {\n          \"id\": 3995,\n          \"article_code\": \"string\",\n          \"quantity\": 6770\n        }\n      ],\n      \"updated_at\": \"2018-01-01 23:59:59\"\n    }\n  ],\n  \"current_page\": 9153,\n  \"limit\": 7583\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5e9aa92-ca7e-47ea-b7a1-1d964b98597c",
+          "name": "Create a sales order (受注伝票を登録)",
+          "request": {
+            "name": "Create a sales order (受注伝票を登録)",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                "new"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15606174-3ad9-4c6c-ae3e-0d87f9021ac7",
+              "name": "Created sales order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"id\": 9613,\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"document_status\": \"string\",\n  \"allocation_status\": \"string\",\n  \"delivery_status\": \"string\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"subtotal\": 3459,\n  \"tax_total\": 9828,\n  \"total\": 128,\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"id\": 8135,\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": 3395,\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"updated_at\": \"2018-01-01 23:59:59\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a79bc26-04b3-4546-b7d2-cf7839fe8903",
+              "name": "Validation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 400,\n  \"message\": \"Validation Failed\",\n  \"errors\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e780fd2-0c3a-4008-92bc-33e1687e1b81",
+          "name": "Create multiple sales orders in one request",
+          "request": {
+            "name": "Create multiple sales orders in one request",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                "new",
+                "multiple"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"code\": \"<string>\",\n    \"buyer_name1\": \"<string>\",\n    \"recipient_name1\": \"<string>\",\n    \"recipient_address1\": \"<string>\",\n    \"object_code\": \"<string>\",\n    \"parent_code\": \"<string>\",\n    \"incoming_payment_status\": \"<string>\",\n    \"authorization_status\": \"<string>\",\n    \"customer_code\": \"<string>\",\n    \"buyer_email\": \"<string>\",\n    \"recipient_post_code\": \"<string>\",\n    \"recipient_prefecture\": \"<string>\",\n    \"total_quantity\": \"<integer>\",\n    \"cod_total\": \"<integer>\",\n    \"lines\": [\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"confirmations\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  },\n  {\n    \"code\": \"<string>\",\n    \"buyer_name1\": \"<string>\",\n    \"recipient_name1\": \"<string>\",\n    \"recipient_address1\": \"<string>\",\n    \"object_code\": \"<string>\",\n    \"parent_code\": \"<string>\",\n    \"incoming_payment_status\": \"<string>\",\n    \"authorization_status\": \"<string>\",\n    \"customer_code\": \"<string>\",\n    \"buyer_email\": \"<string>\",\n    \"recipient_post_code\": \"<string>\",\n    \"recipient_prefecture\": \"<string>\",\n    \"total_quantity\": \"<integer>\",\n    \"cod_total\": \"<integer>\",\n    \"lines\": [\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"confirmations\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "662f86f7-fe2a-4fc6-bc38-ce6438c505e9",
+              "name": "Created sales orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    "new",
+                    "multiple"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"code\": \"<string>\",\n    \"buyer_name1\": \"<string>\",\n    \"recipient_name1\": \"<string>\",\n    \"recipient_address1\": \"<string>\",\n    \"object_code\": \"<string>\",\n    \"parent_code\": \"<string>\",\n    \"incoming_payment_status\": \"<string>\",\n    \"authorization_status\": \"<string>\",\n    \"customer_code\": \"<string>\",\n    \"buyer_email\": \"<string>\",\n    \"recipient_post_code\": \"<string>\",\n    \"recipient_prefecture\": \"<string>\",\n    \"total_quantity\": \"<integer>\",\n    \"cod_total\": \"<integer>\",\n    \"lines\": [\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"confirmations\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  },\n  {\n    \"code\": \"<string>\",\n    \"buyer_name1\": \"<string>\",\n    \"recipient_name1\": \"<string>\",\n    \"recipient_address1\": \"<string>\",\n    \"object_code\": \"<string>\",\n    \"parent_code\": \"<string>\",\n    \"incoming_payment_status\": \"<string>\",\n    \"authorization_status\": \"<string>\",\n    \"customer_code\": \"<string>\",\n    \"buyer_email\": \"<string>\",\n    \"recipient_post_code\": \"<string>\",\n    \"recipient_prefecture\": \"<string>\",\n    \"total_quantity\": \"<integer>\",\n    \"cod_total\": \"<integer>\",\n    \"lines\": [\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      },\n      {\n        \"article_code\": \"<string>\",\n        \"quantity\": \"<integer>\"\n      }\n    ],\n    \"confirmations\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e45fe605-b112-47f8-8d77-0375755246c5",
+          "name": "Update a sales order",
+          "request": {
+            "name": "Update a sales order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41f5d68f-7a0c-48f3-b402-360d76158eab",
+              "name": "Updated sales order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c083b45c-4294-4f39-809f-0580fac7b21b",
+              "name": "The document status does not allow the change (423)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"buyer_name1\": \"<string>\",\n  \"recipient_name1\": \"<string>\",\n  \"recipient_address1\": \"<string>\",\n  \"object_code\": \"<string>\",\n  \"parent_code\": \"<string>\",\n  \"incoming_payment_status\": \"<string>\",\n  \"authorization_status\": \"<string>\",\n  \"customer_code\": \"<string>\",\n  \"buyer_email\": \"<string>\",\n  \"recipient_post_code\": \"<string>\",\n  \"recipient_prefecture\": \"<string>\",\n  \"total_quantity\": \"<integer>\",\n  \"cod_total\": \"<integer>\",\n  \"lines\": [\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"article_code\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"confirmations\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Locked (WebDAV) (RFC 4918)",
+              "code": 423,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32fdf8e5-d9a9-40d7-8695-e2139114e652",
+          "name": "Reverse (cancel) a sales order",
+          "request": {
+            "name": "Reverse (cancel) a sales order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                ":id",
+                "reversal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "677591cf-f20f-41ab-8ae1-4afe0d591230",
+              "name": "Reversed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":id",
+                    "reversal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3937c067-ac86-4d6e-9302-a78f8dfa8761",
+          "name": "Add a line to a sales order",
+          "request": {
+            "name": "Add a line to a sales order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                ":id",
+                "sales_order_lines",
+                "new"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"article_code\": \"<string>\",\n  \"quantity\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adf7c911-e650-4c0a-b694-9b6e55d1286f",
+              "name": "Line added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":id",
+                    "sales_order_lines",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"article_code\": \"<string>\",\n  \"quantity\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f779b438-7aa2-4f8f-b88c-495154591e8f",
+          "name": "Put a sales order into pending-confirmation state",
+          "request": {
+            "name": "Put a sales order into pending-confirmation state",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                ":sales_order_id",
+                "sales_order_confirmations",
+                "new"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sales_order_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af58b6d2-b2ed-4306-83b0-390056fa2b18",
+              "name": "Confirmation created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":sales_order_id",
+                    "sales_order_confirmations",
+                    "new"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sales_order_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "895c79b0-d1e9-412c-a775-1bd0b8fe671c",
+          "name": "Confirm a pending sales order",
+          "request": {
+            "name": "Confirm a pending sales order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant",
+                ":merchant_id",
+                "sales_orders",
+                ":sales_order_id",
+                "sales_order_confirmations",
+                ":sales_order_confirmation_id",
+                "confirmation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchant_id",
+                  "description": "(Required) Merchant identifier the token is scoped to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sales_order_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sales_order_confirmation_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82b002e2-de1e-413b-ba03-80b71176cbbb",
+              "name": "Confirmed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant",
+                    ":merchant_id",
+                    "sales_orders",
+                    ":sales_order_id",
+                    "sales_order_confirmations",
+                    ":sales_order_confirmation_id",
+                    "confirmation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchant_id",
+                      "description": "(Required) Merchant identifier the token is scoped to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sales_order_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sales_order_confirmation_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app2.logiless.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "redirect_uri",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://app2.logiless.com/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://app2.logiless.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "31fe2215-357d-4ed2-9002-3128cb92e420",
+    "name": "LOGILESS Articles Sales Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.\n\nContact Support:\n Name: LOGILESS Developers",
+      "type": "text/plain"
+    }
+  }
+}

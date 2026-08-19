@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LOGILESS Articles Inter-Warehouse Transfers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://app2.logiless.com/oauth/v2/auth",
+      "accessTokenUrl": "https://app2.logiless.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inter-Warehouse Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List inter-warehouse transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/inter_warehouse_transfers",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return. Default 20, maximum 500."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Default 1."
+              }
+            ]
+          },
+          "docs": "List inter-warehouse transfers"
+        },
+        {
+          "info": {
+            "name": "Create an inter-warehouse transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app2.logiless.com/api/v1/merchant/:merchant_id/inter_warehouse_transfers/new",
+            "params": [
+              {
+                "name": "merchant_id",
+                "value": "",
+                "type": "path",
+                "description": "Merchant identifier the token is scoped to"
+              }
+            ]
+          },
+          "docs": "Create an inter-warehouse transfer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
