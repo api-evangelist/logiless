@@ -1,15 +1,7 @@
 {
   "provider": "logiless",
   "sources": [
-    "logiless-articles-api-openapi.yml",
-    "logiless-inbound-deliveries-api-openapi.yml",
-    "logiless-inter-warehouse-transfers-api-openapi.yml",
-    "logiless-inventory-api-openapi.yml",
-    "logiless-locations-api-openapi.yml",
-    "logiless-outbound-deliveries-api-openapi.yml",
-    "logiless-sales-orders-api-openapi.yml",
-    "logiless-sales-returns-api-openapi.yml",
-    "logiless-suppliers-api-openapi.yml"
+    "_original/logiless-openapi.yml"
   ],
   "outputs": [
     "logiless-articles-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "logiless-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "logiless-articles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-inbound-deliveries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-inter-warehouse-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-outbound-deliveries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-sales-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-sales-returns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "logiless-suppliers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

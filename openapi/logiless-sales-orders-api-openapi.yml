@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: LOGILESS Articles Sales Orders API
+  title: LOGILESS Sales Orders API
   version: v1
-  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations. The LOGILESS API is a RESTful, OAuth2-protected interface (scoped per merchant) for reading and writing sales orders, outbound/inbound deliveries, articles (products), inventory summaries, warehouses, stores, suppliers and related logistics records. Requests carry a Bearer access token; POST/PUT bodies are JSON (UTF-8). This specification is DERIVED by API Evangelist from the public LOGILESS Developers documentation and is not an official LOGILESS artifact.
+  description: LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — order intake, inventory sync, allocation, shipping and warehouse operations.
   contact:
     name: LOGILESS Developers
     url: https://app2.logiless.com/developer/
@@ -218,34 +218,7 @@ paths:
         '200':
           description: Confirmed
 components:
-  headers:
-    X-RateLimit-Remaining:
-      description: Remaining requests before X-RateLimit-Reset
-      schema:
-        type: integer
-    X-RateLimit-Reset:
-      description: Unix timestamp when the request counter resets
-      schema:
-        type: integer
-    X-RateLimit-Limit:
-      description: Maximum number of requests accepted in the window
-      schema:
-        type: integer
   schemas:
-    ValidationError:
-      type: object
-      description: 400 error envelope
-      properties:
-        code:
-          type: integer
-          example: 400
-        message:
-          type: string
-          example: Validation Failed
-        errors:
-          type: object
-          additionalProperties:
-            type: string
     SalesOrder:
       type: object
       properties:
@@ -351,48 +324,46 @@ components:
           type: string
         quantity:
           type: integer
-  parameters:
-    updatedAtFrom:
-      name: updated_at_from
-      in: query
-      required: false
-      description: Filter by update time (from), format Y-m-d H:i:s
-      schema:
-        type: string
-        example: '2018-01-01 23:59:59'
-    page:
-      name: page
-      in: query
-      required: false
-      description: Page number. Default 1.
-      schema:
-        type: integer
-        default: 1
-    merchantId:
-      name: merchant_id
-      in: path
-      required: true
-      description: Merchant identifier the token is scoped to
-      schema:
-        type: string
-    updatedAtTo:
-      name: updated_at_to
-      in: query
-      required: false
-      description: Filter by update time (to), format Y-m-d H:i:s
-      schema:
-        type: string
-        example: '2018-01-01 23:59:59'
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of results to return. Default 20, maximum 500.
+    ValidationError:
+      type: object
+      description: 400 error envelope
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Validation Failed
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+  headers:
+    X-RateLimit-Reset:
+      description: Unix timestamp when the request counter resets
       schema:
         type: integer
-        default: 20
-        maximum: 500
+    X-RateLimit-Remaining:
+      description: Remaining requests before X-RateLimit-Reset
+      schema:
+        type: integer
+    X-RateLimit-Limit:
+      description: Maximum number of requests accepted in the window
+      schema:
+        type: integer
   responses:
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Validation failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
     TooManyRequests:
       description: Rate limit exceeded
       headers:
@@ -406,24 +377,53 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid authentication
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Validation failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ValidationError'
     Locked:
       description: The document status does not allow the change (423)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    updatedAtTo:
+      name: updated_at_to
+      in: query
+      required: false
+      description: Filter by update time (to), format Y-m-d H:i:s
+      schema:
+        type: string
+        example: '2018-01-01 23:59:59'
+    merchantId:
+      name: merchant_id
+      in: path
+      required: true
+      description: Merchant identifier the token is scoped to
+      schema:
+        type: string
+    updatedAtFrom:
+      name: updated_at_from
+      in: query
+      required: false
+      description: Filter by update time (from), format Y-m-d H:i:s
+      schema:
+        type: string
+        example: '2018-01-01 23:59:59'
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
   securitySchemes:
     oauth2:
       type: oauth2
