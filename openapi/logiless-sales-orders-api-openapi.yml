@@ -219,6 +219,49 @@ paths:
           description: Confirmed
 components:
   schemas:
+    SalesOrderList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesOrder'
+        current_page:
+          type: integer
+        limit:
+          type: integer
+    SalesOrderLine:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        article_code:
+          type: string
+        quantity:
+          type: integer
+    ValidationError:
+      type: object
+      description: 400 error envelope
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Validation Failed
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+    Error:
+      type: object
+      description: Error envelope for non-400 status codes
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
     SalesOrder:
       type: object
       properties:
@@ -295,75 +338,7 @@ components:
       - buyer_name1
       - recipient_name1
       - recipient_address1
-    Error:
-      type: object
-      description: Error envelope for non-400 status codes
-      properties:
-        error:
-          type: string
-        error_description:
-          type: string
-    SalesOrderList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesOrder'
-        current_page:
-          type: integer
-        limit:
-          type: integer
-    SalesOrderLine:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        article_code:
-          type: string
-        quantity:
-          type: integer
-    ValidationError:
-      type: object
-      description: 400 error envelope
-      properties:
-        code:
-          type: integer
-          example: 400
-        message:
-          type: string
-          example: Validation Failed
-        errors:
-          type: object
-          additionalProperties:
-            type: string
-  headers:
-    X-RateLimit-Reset:
-      description: Unix timestamp when the request counter resets
-      schema:
-        type: integer
-    X-RateLimit-Remaining:
-      description: Remaining requests before X-RateLimit-Reset
-      schema:
-        type: integer
-    X-RateLimit-Limit:
-      description: Maximum number of requests accepted in the window
-      schema:
-        type: integer
   responses:
-    Unauthorized:
-      description: Missing or invalid authentication
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Validation failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ValidationError'
     TooManyRequests:
       description: Rate limit exceeded
       headers:
@@ -383,12 +358,41 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Validation failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
   parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
     updatedAtTo:
       name: updated_at_to
       in: query
       required: false
       description: Filter by update time (to), format Y-m-d H:i:s
+      schema:
+        type: string
+        example: '2018-01-01 23:59:59'
+    updatedAtFrom:
+      name: updated_at_from
+      in: query
+      required: false
+      description: Filter by update time (from), format Y-m-d H:i:s
       schema:
         type: string
         example: '2018-01-01 23:59:59'
@@ -399,23 +403,6 @@ components:
       description: Merchant identifier the token is scoped to
       schema:
         type: string
-    updatedAtFrom:
-      name: updated_at_from
-      in: query
-      required: false
-      description: Filter by update time (from), format Y-m-d H:i:s
-      schema:
-        type: string
-        example: '2018-01-01 23:59:59'
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of results to return. Default 20, maximum 500.
-      schema:
-        type: integer
-        default: 20
-        maximum: 500
     page:
       name: page
       in: query
@@ -424,6 +411,19 @@ components:
       schema:
         type: integer
         default: 1
+  headers:
+    X-RateLimit-Reset:
+      description: Unix timestamp when the request counter resets
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: Remaining requests before X-RateLimit-Reset
+      schema:
+        type: integer
+    X-RateLimit-Limit:
+      description: Maximum number of requests accepted in the window
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2
