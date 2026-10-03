@@ -134,14 +134,6 @@ components:
       description: Merchant identifier the token is scoped to
       schema:
         type: string
-    page:
-      name: page
-      in: query
-      required: false
-      description: Page number. Default 1.
-      schema:
-        type: integer
-        default: 1
     limit:
       name: limit
       in: query
@@ -151,6 +143,14 @@ components:
         type: integer
         default: 20
         maximum: 500
+    page:
+      name: page
+      in: query
+      required: false
+      description: Page number. Default 1.
+      schema:
+        type: integer
+        default: 1
   schemas:
     Article:
       type: object
