@@ -42,15 +42,6 @@ paths:
           description: Created
 components:
   parameters:
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of results to return. Default 20, maximum 500.
-      schema:
-        type: integer
-        default: 20
-        maximum: 500
     page:
       name: page
       in: query
@@ -66,6 +57,15 @@ components:
       description: Merchant identifier the token is scoped to
       schema:
         type: string
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
   securitySchemes:
     oauth2:
       type: oauth2
