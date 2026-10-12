@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/logiless/integrations
+- https://n8n.io/integrations/logiless/
+- https://composio.dev/toolkits/logiless
+- https://monid.ai/tools/logiless
+checked:
+- https://composio.dev/toolkits/logiless
+- https://monid.ai/tools/logiless
+- https://n8n.io/integrations/logiless/
+- https://zapier.com/apps/logiless/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
