@@ -1,9 +1,85 @@
-generated: '2026-07-20'
-method: derived
-source: openapi/logiless-openapi.yml
+generated: '2026-10-14'
+method: none
+source: openapi/logiless-articles-api-openapi.yml, openapi/logiless-inbound-deliveries-api-openapi.yml,
+  openapi/logiless-inter-warehouse-transfers-api-openapi.yml, openapi/logiless-inventory-api-openapi.yml,
+  openapi/logiless-locations-api-openapi.yml, openapi/logiless-outbound-deliveries-api-openapi.yml,
+  openapi/logiless-sales-orders-api-openapi.yml, openapi/logiless-sales-returns-api-openapi.yml,
+  openapi/logiless-suppliers-api-openapi.yml
 schemes:
 - name: oauth2
-  source: openapi/logiless-openapi.yml
+  source: openapi/logiless-articles-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-inbound-deliveries-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-inter-warehouse-transfers-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-inventory-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-locations-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-outbound-deliveries-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-sales-orders-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-sales-returns-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app2.logiless.com/oauth/v2/auth
+    tokenUrl: https://app2.logiless.com/oauth2/token
+  description: OAuth 2.0 authorization-code flow. Applications must be registered and reviewed
+    (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
+    for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
+- name: oauth2
+  source: openapi/logiless-suppliers-api-openapi.yml
   flows:
   - flow: authorizationCode
     authorizationUrl: https://app2.logiless.com/oauth/v2/auth
@@ -12,3 +88,5 @@ schemes:
     (3–5 business days) in the LOGILESS Developers console. Access and refresh tokens are valid
     for 30 days. Tokens are issued per LOGILESS user and scoped to that user's merchant data.
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
