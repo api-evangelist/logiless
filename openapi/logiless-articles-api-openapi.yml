@@ -126,7 +126,29 @@ paths:
         '200':
           description: A page of article maps
 components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+        name:
+          type: string
+        article_type:
+          type: string
   parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of results to return. Default 20, maximum 500.
+      schema:
+        type: integer
+        default: 20
+        maximum: 500
     page:
       name: page
       in: query
@@ -142,28 +164,6 @@ components:
       description: Merchant identifier the token is scoped to
       schema:
         type: string
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of results to return. Default 20, maximum 500.
-      schema:
-        type: integer
-        default: 20
-        maximum: 500
-  schemas:
-    Article:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        code:
-          type: string
-        name:
-          type: string
-        article_type:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
