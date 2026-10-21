@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/logiless/integrations
 - https://n8n.io/integrations/logiless/
@@ -10,7 +10,25 @@ checked:
 - https://monid.ai/tools/logiless
 - https://n8n.io/integrations/logiless/
 - https://zapier.com/apps/logiless/integrations
+- https://advertising.amazon.com/partners/directory
+- https://sellercentral.amazon.com/gspn
+- https://sellercentral.amazon.com/selling-partner-appstore
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sellerapps.app.914207ae-d5eb-477d-bcb0-093f132bd090
+  mirror_of: amazon-seller-central/integrations/amazon-seller-central-integration-edges.yml
+  apps:
+  - LOGILESS
+  detected: '2026-10-21'
+  detected_by: sweep-amazon-sp-api-appstore.py
 templates: []
