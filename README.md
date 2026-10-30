@@ -64,6 +64,139 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Logiless is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+LOGILESS (ロジレス) is a Japanese cloud EC logistics platform that unifies order management (OMS) and warehouse management (WMS) for e-commerce merchants — automating order intake from marketplaces and shopping carts (Rakuten, Shopify, ColorMe, futureshop, ec-force and more), inventory synchronization, allocation, shipping-label issuance and warehouse operations. LOGILESS exposes a RESTful, OAuth2-protected API (scoped per merchant) for reading and writing sales orders, outbound and inbound deliveries, sales returns, inter-warehouse transfers, articles (product master), multi-layer inventory summaries, warehouses, stores and suppliers. The company is a 500 Global portfolio company. This profile was enriched by the API Evangelist pipeline from LOGILESS's public developer documentation; the OpenAPI here is derived and not an official LOGILESS artifact.
 
-Backed by: 500-global — https://logiless.co.jp
+**Areas:** Logistics · E-Commerce · Order Management · Warehouse Management · Inventory · Fulfillment · Shipping · OMS · WMS · Japan
+
+## Logiless on APIs.io
+
+Everything profiled for Logiless is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/logiless/](https://apis.io/providers/logiless/)** — or go straight to one of the APIs or properties below.
+
+### APIs (9)
+
+- [Logiless Articles API](https://apis.io/apis/logiless/logiless-articles-api/) — 商品マスタ / 商品対応表 — product master and mapping
+- [Logiless Inbound Deliveries API](https://apis.io/apis/logiless/logiless-inbound-deliveries-api/) — 入荷予定伝票 — expected inbound shipments
+- [Logiless Inter-Warehouse Transfers API](https://apis.io/apis/logiless/logiless-inter-warehouse-transfers-api/) — 倉庫間移動伝票 — stock transfers between warehouses
+- [Logiless Inventory API](https://apis.io/apis/logiless/logiless-inventory-api/) — 在庫 / 保管状況 / 日次在庫表 / 在庫操作ログ / 倉庫別発注点 — inventory & storage summaries
+- [Logiless Locations API](https://apis.io/apis/logiless/logiless-locations-api/) — 店舗 / 倉庫 / ロケーション — stores, warehouses and locations
+- [Logiless Outbound Deliveries API](https://apis.io/apis/logiless/logiless-outbound-deliveries-api/) — 出荷伝票 — shipment records
+- [Logiless Sales Orders API](https://apis.io/apis/logiless/logiless-sales-orders-api/) — 受注伝票 — order intake, editing, confirmation and reversal
+- [Logiless Sales Returns API](https://apis.io/apis/logiless/logiless-sales-returns-api/) — 売上返品 — returns
+- [Logiless Suppliers API](https://apis.io/apis/logiless/logiless-suppliers-api/) — 仕入先マスタ — supplier master
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [logiless](https://apis.io/servers/logiless/logiless/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [LOGILESS Articles API](https://apis.io/collections/logiless/open-logiless-articles-api/)
+- [LOGILESS Articles Inbound Deliveries API](https://apis.io/collections/logiless/open-logiless-inbound-deliveries-api/)
+- [LOGILESS Articles Inter-Warehouse Transfers API](https://apis.io/collections/logiless/open-logiless-inter-warehouse-transfers-api/)
+- [LOGILESS Articles Inventory API](https://apis.io/collections/logiless/open-logiless-inventory-api/)
+- [LOGILESS Articles Locations API](https://apis.io/collections/logiless/open-logiless-locations-api/)
+- [LOGILESS Articles Outbound Deliveries API](https://apis.io/collections/logiless/open-logiless-outbound-deliveries-api/)
+- [LOGILESS Articles Sales Orders API](https://apis.io/collections/logiless/open-logiless-sales-orders-api/)
+- [LOGILESS Articles Sales Returns API](https://apis.io/collections/logiless/open-logiless-sales-returns-api/)
+- [LOGILESS Articles Suppliers API](https://apis.io/collections/logiless/open-logiless-suppliers-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Logiless Overlay](https://apis.io/overlays/logiless/logiless-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Logiless Authentication](https://apis.io/security/logiless/logiless-authentication/)
+- [Logiless Domain Security](https://apis.io/security/logiless/logiless-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Logiless Scopes](https://apis.io/scopes/logiless/logiless-scopes/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Logiless Rate Limits](https://apis.io/rate-limits/logiless/logiless-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.logiless.com)
+- [Documentation](https://support.logiless.com/)
+- [Getting started](https://app2.logiless.com/developer/documents/authentication)
+- [API reference](https://app2.logiless.com/developer/documents/specifications)
+- [Pricing](https://www.logiless.com/price/)
+- [Sign up](https://app2.logiless.com/merchant/sign_up)
+- [Support](https://support.logiless.com/)
+- [Blog](https://www.logiless.com/blog/)
+- [Terms of service](https://www.logiless.com/legal/terms/)
+- [Privacy policy](https://www.logiless.com/legal/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 38.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 11.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 44.7 |
+
+**Agent readiness 31.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/logiless/](https://apis.io/providers/logiless/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Logiless: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/logiless/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
